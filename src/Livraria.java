@@ -22,15 +22,13 @@ public class Livraria {
 
 //Conexão com o SGBDs
 	public void conectar() {
-		String servidor = "jdbc:mysql://localhost:3306/livraria?useTimezone=true";
-		String timezone = "&serverTimezone=UTC&useSSL=false";
-		String string = servidor+timezone;
+		String servidor = "jdbc:mysql://localhost:3306/livraria?useTimezone=true&serverTimezone=UTC&useSSL=false";
 		String usuario = "root";
 		String senha = "";
 		String driver = "com.mysql.jdbc.Driver";
 		try {
 			Class.forName(driver);
-			this.connection = DriverManager.getConnection(string, usuario, senha);
+			this.connection = DriverManager.getConnection(servidor, usuario, senha);
 			this.statement = this.connection.createStatement();
 		} catch (Exception e) {
 			System.out.println("Erro" + e.getMessage());
